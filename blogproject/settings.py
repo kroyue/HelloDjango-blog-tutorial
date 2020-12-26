@@ -25,7 +25,7 @@ SECRET_KEY = 'd3mbe)fzs&4+70fvt9)n5lp0ae8*x4t1k9!!q_w!yqo8@^9mr-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost ', '.kroyue.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost ', '.kroyue.com','121.196.161.14']
 
 
 # Application definition
