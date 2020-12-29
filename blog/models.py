@@ -53,5 +53,9 @@ class Post(models.Model):
             'markdown.extensions.extra',
             'markdown.extensions.codehilite',
         ])
-        self.excerpt = strip_tags(md.convert(self.body))[:54]
+
+        if len(self.excerpt)==0:
+            Exceprt = strip_tags(md.convert(self.body))[:54]+'...'
+            self.excerpt=Exceprt
+
         super().save(*args, **kwargs)
