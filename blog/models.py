@@ -35,6 +35,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, verbose_name='分类', on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, verbose_name='标签', blank=True)
     author = models.ForeignKey(User, verbose_name='作者', on_delete=models.CASCADE)
+    views = models.PositiveIntegerField(default=0)
 
     class Meta:
         verbose_name = '文章'
@@ -59,3 +60,7 @@ class Post(models.Model):
             self.excerpt=Exceprt
 
         super().save(*args, **kwargs)
+
+    def increase_views(self):
+        self.views += 1
+        self.save(update_fields=['views'])

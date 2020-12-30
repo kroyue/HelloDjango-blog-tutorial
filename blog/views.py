@@ -1,7 +1,6 @@
 import markdown
 import re
 from django.shortcuts import render, get_object_or_404
-from .models import Post
 from django.utils.text import slugify
 from markdown.extensions.toc import TocExtension
 from .models import Post, Category,Tag
@@ -12,6 +11,9 @@ def index(request):
 
 def detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
+
+    post.increase_views()
+
     md = markdown.Markdown(extensions=[
         'markdown.extensions.extra',
         'markdown.extensions.codehilite',
