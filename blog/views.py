@@ -44,11 +44,6 @@ class TagView(IndexView):
         t = get_object_or_404(Tag, pk=self.kwargs.get("pk"))
         return super().get_queryset().filter(tags=t)
 
-class TagView(IndexView):
-    def get_queryset(self):
-        t = get_object_or_404(Tag, pk=self.kwargs.get("pk"))
-        return super().get_queryset().filter(tags=t)
-
 class PostDetailView(DetailView):
     # 这些属性的含义和 ListView 是一样的
     model = Post
